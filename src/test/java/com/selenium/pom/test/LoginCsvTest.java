@@ -3,14 +3,12 @@ package com.selenium.pom.test;
 import com.selenium.pom.model.LoginData;
 import com.selenium.pom.page.BasePage;
 import com.selenium.pom.page.LoginPage;
+import com.selenium.pom.utils.CsvReader;
 import com.selenium.pom.utils.ExcelReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class LoginCsvTest {
     private WebDriver driver;
@@ -30,7 +28,7 @@ public class LoginCsvTest {
 
     @DataProvider(name = "loginData")
     public Object[] getLoginData() {
-        return ExcelReader.readUsers("files/Usuarios.xlsx").toArray();
+        return CsvReader.readUsersCsv("files/Usuarios.csv").toArray();
     }
 
     @Test(dataProvider = "loginData")

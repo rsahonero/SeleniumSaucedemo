@@ -32,10 +32,8 @@ public class LoginJsonTest {
     }
 
     @Test(dataProvider = "loginData")
-    public void LoginSuccessful(LoginData user){
+    public void LoginSuccessfulJson(LoginData user){
         loginPage.loginUser(user.getUsername(), user.getPassword());
-        //String actualMessage = loginPage.locked_out_user_message();
-        //Assert.assertTrue(actualMessage.contains("Epic sadface:"));
         Assert.assertEquals(
                 driver.getCurrentUrl(),
                 "https://www.saucedemo.com/inventory.html",
