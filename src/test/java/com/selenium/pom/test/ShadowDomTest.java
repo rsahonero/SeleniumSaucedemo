@@ -80,6 +80,8 @@ public class ShadowDomTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if(driver != null){
+            driver.quit();
+        }
     }
 }
