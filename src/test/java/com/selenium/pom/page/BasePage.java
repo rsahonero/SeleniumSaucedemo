@@ -7,9 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 import java.util.List;
 
 public class BasePage {
@@ -23,10 +21,10 @@ public class BasePage {
     public WebDriver WebDriverConnection(){
         try {
             driver = new RemoteWebDriver(
-                    new URL("http://192.168.26.2:4444"),
+                    new URI("http://192.168.26.2:4444").toURL(),
                     new ChromeOptions()
             );
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return driver;
@@ -38,21 +36,21 @@ public class BasePage {
             switch (browser.toLowerCase()) {
                 case "firefox":
                     driver = new RemoteWebDriver(
-                            new URL("http://localhost:4444"),
+                            new URI("http://localhost:4444").toURL(),
                             new FirefoxOptions());
                     break;
                 case "edge":
                     driver = new RemoteWebDriver(
-                            new URL("http://localhost:4444"),
+                            new URI("http://localhost:4444").toURL(),
                             new EdgeOptions());
                     break;
                 default:
                     driver = new RemoteWebDriver(
-                            new URL("http://localhost:4444"),
+                            new URI("http://localhost:4444").toURL(),
                             new ChromeOptions());
             }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al conectar con Selenium Grid", e);
         }
         return driver;
     }

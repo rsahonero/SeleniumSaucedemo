@@ -18,8 +18,6 @@ public class LoginExcelTest {
         //driver = loginPage.WebDriverConnection();
         driver = loginPage.driverConnection(browser);
         loginPage.visit("https://www.saucedemo.com/");
-       // driver.manage().window().maximize();
-
     }
 
     @DataProvider(name = "loginData")
@@ -30,8 +28,6 @@ public class LoginExcelTest {
     @Test(dataProvider = "loginData")
     public void LoginSuccessful(LoginData user){
         loginPage.loginUser(user.getUsername(), user.getPassword());
-        //String actualMessage = loginPage.locked_out_user_message();
-        //Assert.assertTrue(actualMessage.contains("Epic sadface:"));
         Assert.assertEquals(
                 driver.getCurrentUrl(),
                 "https://www.saucedemo.com/inventory.html",

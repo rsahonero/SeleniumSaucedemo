@@ -18,7 +18,6 @@ public class LoginJsonTest {
         //driver = loginPage.WebDriverConnection();
         driver = loginPage.driverConnection(browser);
         loginPage.visit("https://www.saucedemo.com/");
-        driver.manage().window().maximize();
 
     }
 
