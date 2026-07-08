@@ -11,7 +11,7 @@ public class LoginPage extends BasePage{
      By errorMessage = By.cssSelector("#login_button_container h3");
 
     public LoginPage(WebDriver driver){
-        super();
+        super(driver);
     }
 
     public void loginUser(String userNameText, String passwordText){
@@ -20,7 +20,4 @@ public class LoginPage extends BasePage{
         click(loginBtn);
     }
 
-    public String locked_out_user_message(){
-        return find(errorMessage).getText();
-    }
 }

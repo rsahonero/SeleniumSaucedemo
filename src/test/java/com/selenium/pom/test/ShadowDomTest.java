@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import static com.selenium.pom.page.BasePage.driver;
 
 public class ShadowDomTest {
     private WebDriver driver;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Grid" parallel="tests" thread-count="3">
+    <test name="Test para login de usuario">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.selenium.pom.test.LoginTest"/>
+        </classes>
+    </test>
+    <test name="Test para login usando Json">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="com.selenium.pom.test.LoginJsonTest"/>
+        </classes>
+    </test>
+    <test name="Test para login usando Excel">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.selenium.pom.test.LoginExcelTest"/>
+        </classes>
+    </test>
+    <test name="Test para login usando Csv">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.selenium.pom.test.LoginCsvTest"/>
+        </classes>
+    </test>
+</suite>
