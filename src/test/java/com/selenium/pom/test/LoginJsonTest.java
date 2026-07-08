@@ -16,7 +16,8 @@ public class LoginJsonTest {
     public void setUp(String browser){
         loginPage = new LoginPage(driver);
         //driver = loginPage.WebDriverConnection();
-        driver = loginPage.driverConnection(browser);
+        //driver = loginPage.driverConnection(browser);
+        driver = loginPage.driverConnectionCloud();
         loginPage.visit("https://www.saucedemo.com/");
 
     }
