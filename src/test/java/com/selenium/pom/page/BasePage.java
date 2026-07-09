@@ -35,6 +35,7 @@ public class BasePage {
     }
 
     // CONFIGURACION CON MULTIPLES NAVEGADORES
+    // Applicable para standalone y para contenedores con docker
     public WebDriver driverConnection(String browser) {
         try {
             switch (browser.toLowerCase()) {
@@ -81,8 +82,8 @@ public class BasePage {
         String hubURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
 
         try {
-            driver = new RemoteWebDriver(new URL(hubURL), browserOptions);
-        } catch (MalformedURLException e) {
+            driver = new RemoteWebDriver(new URI(hubURL).toURL(), browserOptions);
+        } catch (Exception e) {
             System.out.println("URL del grid inválida: " + e.getMessage());
         }
         return driver;

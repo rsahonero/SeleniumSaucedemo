@@ -17,8 +17,8 @@ public class LoginTest {
     public void setup(String browser){
         loginPage = new LoginPage(driver);
         //driver = loginPage.WebDriverConnection();
-        //driver = loginPage.driverConnection(browser);
-        driver = loginPage.driverConnectionCloud();
+        driver = loginPage.driverConnection(browser);
+        //driver = loginPage.driverConnectionCloud();
         loginPage.visit("https://www.saucedemo.com/");
     }
     @Test
